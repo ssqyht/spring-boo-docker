@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+#因为已经在其他容器里面启动了mysql，故这里注释掉，如果没有启动地方启动，请放开注释
+  mysql:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - "/Users/yuanhaitao/git/project/demo/spring-boot-docker/db:/var/lib/mysql"
+    ports:
+      - 3306:3306
+    environment:
+          MYSQL_ROOT_PASSWORD: 123456
+  spring-boot-docker:
+    image: com.test/spring-boot-docker
+    ports:
+      - "9876:9876"
+    links:
+      - mysql
