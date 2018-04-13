@@ -16,3 +16,9 @@ services:
       - "9876:9876"
     links:
       - mysql
+  spring-boot-docker1:
+    image: com.test/spring-boot-docker
+    ports:
+      - "9875:9876"
+    links:
+      - mysql
